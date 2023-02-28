@@ -18,6 +18,7 @@ class MovieModel extends Movie {
       backdrop_path: json['backdrop_path'],
       genre_ids: List<int>.from(json['genre_ids'].map((e) => e)),
       overview: json['overview'],
+      //TODO:unHandle Exception (int and Double)
       vote_average: json['vote_average'],
       release_date: json['release_date'],
     );

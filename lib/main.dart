@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:movies_app/core/services/services_locator.dart';
+import 'package:movies_app/movies/presentation/pages/movies_screen.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+  ServicesLocator().init();
   runApp(const MyApp());
 }
 
@@ -13,27 +17,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const MyHomePage(),
-    );
-  }
-}
-
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key});
-
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title:const Text('widget'),
-      ),
-      body:const SizedBox(),
+      home: const MainMoviesScreen(),
     );
   }
 }
