@@ -24,4 +24,6 @@ class MovieModel extends Movie {
     );
   }
 
+
+
 }
