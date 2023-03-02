@@ -12,8 +12,10 @@ class TopRatedComponents extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<MoviesBloc,MoviesState>(
-      builder: (context , state){
+    return BlocBuilder<MoviesBloc, MoviesState>(
+      buildWhen: (previous, current) =>
+          previous.topRatedState != current.topRatedState,
+      builder: (context, state) {
         return FadeIn(
           duration: const Duration(milliseconds: 500),
           child: SizedBox(
@@ -33,7 +35,7 @@ class TopRatedComponents extends StatelessWidget {
                     },
                     child: ClipRRect(
                       borderRadius:
-                      const BorderRadius.all(Radius.circular(8.0)),
+                          const BorderRadius.all(Radius.circular(8.0)),
                       child: CachedNetworkImage(
                         width: 120.0,
                         fit: BoxFit.cover,
@@ -51,7 +53,7 @@ class TopRatedComponents extends StatelessWidget {
                           ),
                         ),
                         errorWidget: (context, url, error) =>
-                        const Icon(Icons.error),
+                            const Icon(Icons.error),
                       ),
                     ),
                   ),

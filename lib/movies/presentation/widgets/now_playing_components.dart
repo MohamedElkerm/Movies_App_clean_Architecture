@@ -13,15 +13,17 @@ class NowPlayingComponents extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<MoviesBloc,MoviesState>(
-      builder: (context,state){
+    return BlocBuilder<MoviesBloc, MoviesState>(
+      buildWhen: (previous, current) =>
+          previous.nowPlayingState != current.nowPlayingState,
+      builder: (context, state) {
         print(state.nowPlayingMovies);
 
-        switch(state.nowPlayingState){
+        switch (state.nowPlayingState) {
           case RequestState.loading:
-            return const SizedBox(
-              height: 400,
-              child: Center(child: CircularProgressIndicator()),
+            return SizedBox(
+              height: MediaQuery.of(context).size.height * 1 / 2,
+              child: const Center(child: CircularProgressIndicator()),
             );
           case RequestState.loaded:
             return FadeIn(
@@ -33,7 +35,7 @@ class NowPlayingComponents extends StatelessWidget {
                   onPageChanged: (index, reason) {},
                 ),
                 items: state.nowPlayingMovies.map(
-                      (item) {
+                  (item) {
                     return GestureDetector(
                       key: const Key('openMovieMinimalDetail'),
                       onTap: () {
@@ -61,7 +63,8 @@ class NowPlayingComponents extends StatelessWidget {
                             blendMode: BlendMode.dstIn,
                             child: CachedNetworkImage(
                               height: 560.0,
-                              imageUrl: ApiConstants.imageUrl(item.backdrop_path),
+                              imageUrl:
+                                  ApiConstants.imageUrl(item.backdrop_path),
                               fit: BoxFit.cover,
                             ),
                           ),
@@ -110,7 +113,7 @@ class NowPlayingComponents extends StatelessWidget {
                 ).toList(),
               ),
             );
-          default :
+          default:
             return Container();
         }
       },
