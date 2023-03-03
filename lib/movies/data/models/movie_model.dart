@@ -19,7 +19,7 @@ class MovieModel extends Movie {
       genre_ids: List<int>.from(json['genre_ids'].map((e) => e)),
       overview: json['overview'],
       //TODO:unHandle Exception (int and Double)
-      vote_average: json['vote_average'],
+      vote_average: json['vote_average'].toDouble(),
       release_date: json['release_date'],
     );
   }
