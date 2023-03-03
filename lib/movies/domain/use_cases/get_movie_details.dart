@@ -8,7 +8,7 @@ import 'package:movies_app/movies/domain/repositories/base_movies_repository.dar
 class GetMovieDetailsUseCase extends BaseUseCase {
   final BaseMovieRepository baseMovieRepository;
 
-  GetMovieDetailsUseCase({required this.baseMovieRepository});
+  GetMovieDetailsUseCase( this.baseMovieRepository);
 
   @override
   Future<Either<Failure, MovieDetail>> call(movieDetail) async {
