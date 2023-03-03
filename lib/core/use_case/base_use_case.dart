@@ -4,7 +4,7 @@ import 'package:movies_app/core/error/failure.dart';
 
 
 abstract class BaseUseCase<T, params> {
-  Future<Either<Failure, List<T>>> call(params);
+  Future<Either<Failure, dynamic>> call(params);
 }
 
 class NoParams extends Equatable {

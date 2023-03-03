@@ -11,7 +11,7 @@ class GetMovieDetailsUseCase extends BaseUseCase {
   GetMovieDetailsUseCase({required this.baseMovieRepository});
 
   @override
-  Future<Either<Failure, List<MovieDetail>>> call(movieDetail) async {
+  Future<Either<Failure, MovieDetail>> call(movieDetail) async {
     return await baseMovieRepository.getMovieDetails(movieDetail);
   }
 }
