@@ -3,6 +3,7 @@ import 'package:movies_app/core/error/exceptions.dart';
 import 'package:movies_app/core/error/failure.dart';
 import 'package:movies_app/movies/data/data_sources/remote/remote_movie_data_source.dart';
 import 'package:movies_app/movies/domain/entities/movie.dart';
+import 'package:movies_app/movies/domain/entities/movie_detail.dart';
 import 'package:movies_app/movies/domain/repositories/base_movies_repository.dart';
 
 class MovieRepository extends BaseMovieRepository {
@@ -38,5 +39,11 @@ class MovieRepository extends BaseMovieRepository {
     } on ServerException catch (fail) {
       return Left(ServerFailure(fail.errorMessageModel.status_message));
     }
+  }
+
+  @override
+  Future<Either<Failure, List<MovieDetail>>> getMovieDetails(movieDetail) {
+    // TODO: implement getMovieDetails
+    throw UnimplementedError();
   }
 }

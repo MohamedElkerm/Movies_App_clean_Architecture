@@ -1,3 +1,4 @@
+import 'package:movies_app/core/use_case/base_use_case.dart';
 import 'package:movies_app/core/utils/enums.dart';
 import 'package:movies_app/movies/domain/use_cases/get_now_playing_movies_usecase.dart';
 import 'package:movies_app/movies/domain/use_cases/get_popular_movies_usecase.dart';
@@ -18,7 +19,7 @@ class MoviesBloc extends Bloc<MoviesEvent, MoviesState> {
   ) : super(const MoviesState()) {
     //TODO:Use event in the State
     on<GetNowPlayingEvent>((event, emit) async {
-      final result = await getNowPlayingMoviesUseCase();
+      final result = await getNowPlayingMoviesUseCase(const NoParams());
       result.fold(
         (l) => emit(state.copyWith(
             nowPlayingMessage: l.msg, nowPlayingState: RequestState.error)),
@@ -31,7 +32,7 @@ class MoviesBloc extends Bloc<MoviesEvent, MoviesState> {
     });
 
     on<GetPopularMoviesEvent>((event, emit) async {
-      final result = await getPopularMoviesUseCase();
+      final result = await getPopularMoviesUseCase(const NoParams());
       result.fold(
         (l) => emit(
           state.copyWith(
@@ -46,7 +47,7 @@ class MoviesBloc extends Bloc<MoviesEvent, MoviesState> {
     });
 
     on<GetTopRatedMoviesEvent>((event, emit) async {
-      final result = await getTopRatedMoviesUseCase();
+      final result = await getTopRatedMoviesUseCase(const NoParams());
       result.fold(
         (l) => emit(
           state.copyWith(
