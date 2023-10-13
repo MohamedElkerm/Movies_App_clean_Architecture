@@ -13,7 +13,7 @@ class MovieRepository extends BaseMovieRepository {
   MovieRepository(this.baseMovieRemoteDataSource);
 
   @override
-  Future<Either<Failure, List<Movie>>> getNowPlayingMovies() async {
+  getNowPlayingMovies() async {
     final result = await baseMovieRemoteDataSource.getNowPlayingMovies();
     try {
       return Right(result);
@@ -23,7 +23,7 @@ class MovieRepository extends BaseMovieRepository {
   }
 
   @override
-  Future<Either<Failure, List<Movie>>> getPopularMovies() async {
+  getPopularMovies() async {
     final result = await baseMovieRemoteDataSource.getPopularMovies();
     try {
       return Right(result);
@@ -33,7 +33,7 @@ class MovieRepository extends BaseMovieRepository {
   }
 
   @override
-  Future<Either<Failure, List<Movie>>> getTopRatedMovies() async {
+  getTopRatedMovies() async {
     final result = await baseMovieRemoteDataSource.getTopRatedMovies();
     try {
       return Right(result);
@@ -43,7 +43,7 @@ class MovieRepository extends BaseMovieRepository {
   }
 
   @override
-  Future<Either<Failure, MovieDetailsModel>> getMovieDetails(movieDetail) async{
+  getMovieDetails(movieDetail) async{
     final result =await baseMovieRemoteDataSource.getMovieDetails(movieDetail);
     try{
       return Right(result);
@@ -53,7 +53,7 @@ class MovieRepository extends BaseMovieRepository {
   }
 
   @override
-  Future<Either<Failure, List<Recommendation>>> getRecommendation(recommendationParams) async{
+  getRecommendation(recommendationParams) async{
     final result =await baseMovieRemoteDataSource.getRecommendation(recommendationParams);
     try{
       return Right(result);

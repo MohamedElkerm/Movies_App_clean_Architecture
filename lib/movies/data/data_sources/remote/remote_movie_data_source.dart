@@ -10,22 +10,22 @@ import 'package:movies_app/movies/data/models/recommendation_model.dart';
 import 'package:movies_app/movies/domain/entities/recomendation.dart';
 
 abstract class BaseMovieRemoteDataSource {
-  Future<List<MovieModel>> getNowPlayingMovies();
+  getNowPlayingMovies();
 
-  Future<List<MovieModel>> getPopularMovies();
+  getPopularMovies();
 
-  Future<List<MovieModel>> getTopRatedMovies();
+ getTopRatedMovies();
 
-  Future<MovieDetailsModel> getMovieDetails(movieDetailsParams);
+  getMovieDetails(movieDetailsParams);
 
-  Future<List<RecommendationModel>> getRecommendation(recommendationParams);
+  getRecommendation(recommendationParams);
 
 
 }
 
 class MovieRemoteDataSource extends BaseMovieRemoteDataSource {
   @override
-  Future<List<MovieModel>> getNowPlayingMovies() async {
+  getNowPlayingMovies() async {
     final response = await Dio().get(
       '${ApiConstants.baseUrl}/movie/popular?api_key=${ApiConstants.api}',
     );
@@ -40,12 +40,12 @@ class MovieRemoteDataSource extends BaseMovieRemoteDataSource {
   }
 
   @override
-  Future<List<MovieModel>> getPopularMovies() async {
+  getPopularMovies() async {
     final Response response = await Dio().get(
         '${ApiConstants.baseUrl}/movie/popular?api_key=${ApiConstants.api}');
     if (response.statusCode == 200) {
-      return List.from(
-          (response.data['results']).map((e) => MovieModel.fromJsom(e)));
+      return List<MovieModel>.from((response.data['results'] as List)
+          .map((e) => MovieModel.fromJsom(e)));
     } else {
       throw ServerException(
           errorMessageModel: ErrorMessageModel.fromJson(response.data));
@@ -53,7 +53,7 @@ class MovieRemoteDataSource extends BaseMovieRemoteDataSource {
   }
 
   @override
-  Future<List<MovieModel>> getTopRatedMovies() async {
+  getTopRatedMovies() async {
     final Response response = await Dio().get(
         '${ApiConstants.baseUrl}//movie/top_rated?api_key=${ApiConstants.api}');
     if (response.statusCode == 200) {
@@ -68,7 +68,7 @@ class MovieRemoteDataSource extends BaseMovieRemoteDataSource {
 
   //https://api.themoviedb.org/3/movie/631842?api_key=5ed1a9a53046346a20f2591dbd595a3f
   @override
-  Future<MovieDetailsModel> getMovieDetails(movieDetailsParams) async{
+  getMovieDetails(movieDetailsParams) async{
     final response = await Dio().get(
       '${ApiConstants.baseUrl}/movie/$movieDetailsParams?api_key=${ApiConstants.api}',
     );
@@ -83,7 +83,7 @@ class MovieRemoteDataSource extends BaseMovieRemoteDataSource {
   }
 
   @override
-  Future<List<RecommendationModel>> getRecommendation(recommendationParams) async{
+  getRecommendation(recommendationParams) async{
     final Response response = await Dio().get(
         '${ApiConstants.baseUrl}/movie/$recommendationParams/recommendations?api_key=${ApiConstants.api}');
     if (response.statusCode == 200) {

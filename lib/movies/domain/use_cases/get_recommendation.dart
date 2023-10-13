@@ -12,7 +12,7 @@ class GetRecommendationUseCase extends BaseUseCase {
   GetRecommendationUseCase(this.baseMovieRepository);
 
   @override
-  Future<Either<Failure, dynamic>> call(recommendationParams) async{
+  call(recommendationParams) async{
     return  await baseMovieRepository.getRecommendation(recommendationParams);
   }
 

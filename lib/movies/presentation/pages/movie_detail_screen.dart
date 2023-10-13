@@ -187,8 +187,8 @@ class MovieDetailContent extends StatelessWidget {
                     child: FadeInUp(
                       from: 20,
                       duration: const Duration(milliseconds: 500),
-                      child:  Text(
-                        'AppString.moreLikeThis',
+                      child:const  Text(
+                        'More Like This Movies',
                         style: TextStyle(
                           fontSize: 16.0,
                           fontWeight: FontWeight.w500,
@@ -239,6 +239,7 @@ class MovieDetailContent extends StatelessWidget {
   Widget _showRecommendations() {
     return BlocBuilder<MovieDetailsBloc, MovieDetailsState>(
       builder: (context, state) => SliverGrid(
+
         delegate: SliverChildBuilderDelegate(
               (context, index) {
             final recommendation = state.recommendation[index];
