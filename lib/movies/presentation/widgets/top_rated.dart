@@ -5,6 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movies_app/core/network/api_constants.dart';
 import 'package:movies_app/movies/presentation/manager/movies_bloc.dart';
 import 'package:movies_app/movies/presentation/manager/movies_state.dart';
+import 'package:movies_app/movies/presentation/pages/movie_detail_screen.dart';
 import 'package:shimmer/shimmer.dart';
 
 class TopRatedComponents extends StatelessWidget {
@@ -31,7 +32,8 @@ class TopRatedComponents extends StatelessWidget {
                   padding: const EdgeInsets.only(right: 8.0),
                   child: InkWell(
                     onTap: () {
-                      /// TODO : NAVIGATE TO  MOVIE DETAILS
+                      Navigator.push(context, MaterialPageRoute(builder: (context)=>MovieDetailScreen(id: state.topRatedMovies[index].id)));
+
                     },
                     child: ClipRRect(
                       borderRadius:
