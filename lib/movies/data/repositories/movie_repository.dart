@@ -52,13 +52,13 @@ class MovieRepository extends BaseMovieRepository {
     }
   }
 
-  @override
-  getRecommendation(recommendationParams) async{
-    final result =await baseMovieRemoteDataSource.getRecommendation(recommendationParams);
-    try{
-      return Right(result);
-    }on ServerException catch(err){
-      return Left(ServerFailure(err.errorMessageModel.status_message));
-    }
-  }
+  // @override
+  // getRecommendation(recommendationParams) async{
+  //   final result =await baseMovieRemoteDataSource.getRecommendation(recommendationParams);
+  //   try{
+  //     return Right(result);
+  //   }on ServerException catch(err){
+  //     return Left(ServerFailure(err.errorMessageModel.status_message));
+  //   }
+  // }
 }

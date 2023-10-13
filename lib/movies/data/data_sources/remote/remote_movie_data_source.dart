@@ -18,7 +18,7 @@ abstract class BaseMovieRemoteDataSource {
 
   getMovieDetails(movieDetailsParams);
 
-  getRecommendation(recommendationParams);
+  // getRecommendation(recommendationParams);
 
 
 }
@@ -82,20 +82,21 @@ class MovieRemoteDataSource extends BaseMovieRemoteDataSource {
     }
   }
 
-  @override
-  getRecommendation(recommendationParams) async{
-    final Response response = await Dio().get(
-        '${ApiConstants.baseUrl}/movie/$recommendationParams/recommendations?api_key=${ApiConstants.api}');
-    if (response.statusCode == 200) {
-      return List<RecommendationModel>.from((response.data['results'] as List)
-          .map((e) => RecommendationModel.fromJson(e)));
-    } else {
-      print('EROORRRRRRRRRRRRRRRRRRRR');
-      print(response.data.toString());
-      throw ServerException(
-          errorMessageModel: ErrorMessageModel.fromJson(response.data));
-    }
-  }
+  // @override
+  // getRecommendation(recommendationParams) async{
+  //   print("Start get rec");
+  //   final Response response = await Dio().get(
+  //       '${ApiConstants.baseUrl}/movie/$recommendationParams/recommendations?api_key=${ApiConstants.api}');
+  //   if (response.statusCode == 200) {
+  //     return List<RecommendationModel>.from((response.data['results'] as List)
+  //         .map((e) => RecommendationModel.fromJson(e)));
+  //   } else {
+  //     print('EROORRRRRRRRRRRRRRRRRRRR');
+  //     print(response.data.toString());
+  //     throw ServerException(
+  //         errorMessageModel: ErrorMessageModel.fromJson(response.data));
+  //   }
+  // }
 
 
 }

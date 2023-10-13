@@ -10,5 +10,5 @@ abstract class BaseMovieRepository {
   getTopRatedMovies();
 
   getMovieDetails(int movieDetail);
-  getRecommendation(recommendationParams);
+  // getRecommendation(recommendationParams);
 }
