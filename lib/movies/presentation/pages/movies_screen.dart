@@ -39,23 +39,23 @@ class MainMoviesScreen extends StatelessWidget {
                         letterSpacing: 0.15,
                       ),
                     ),
-                    InkWell(
-                      onTap: () {
-                        /// TODO : NAVIGATION TO POPULAR SCREEN
-                      },
-                      child: Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Row(
-                          children: const [
-                            Text('See More'),
-                            Icon(
-                              Icons.arrow_forward_ios,
-                              size: 16.0,
-                            )
-                          ],
-                        ),
-                      ),
-                    ),
+                    // InkWell(
+                    //   onTap: () {
+                    //     /// TODO : NAVIGATION TO POPULAR SCREEN
+                    //   },
+                    //   child: Padding(
+                    //     padding: const EdgeInsets.all(8.0),
+                    //     child: Row(
+                    //       children: const [
+                    //         Text('See More'),
+                    //         Icon(
+                    //           Icons.arrow_forward_ios,
+                    //           size: 16.0,
+                    //         )
+                    //       ],
+                    //     ),
+                    //   ),
+                    // ),
                   ],
                 ),
               ),
@@ -78,23 +78,23 @@ class MainMoviesScreen extends StatelessWidget {
                         letterSpacing: 0.15,
                       ),
                     ),
-                    InkWell(
-                      onTap: () {
-                        /// TODO : NAVIGATION TO Top Rated Movies Screen
-                      },
-                      child: Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Row(
-                          children: const [
-                            Text('See More'),
-                            Icon(
-                              Icons.arrow_forward_ios,
-                              size: 16.0,
-                            )
-                          ],
-                        ),
-                      ),
-                    ),
+                    // InkWell(
+                    //   onTap: () {
+                    //     /// TODO : NAVIGATION TO Top Rated Movies Screen
+                    //   },
+                    //   child: Padding(
+                    //     padding: const EdgeInsets.all(8.0),
+                    //     child: Row(
+                    //       children: const [
+                    //         Text('See More'),
+                    //         Icon(
+                    //           Icons.arrow_forward_ios,
+                    //           size: 16.0,
+                    //         )
+                    //       ],
+                    //     ),
+                    //   ),
+                    // ),
                   ],
                 ),
               ),
