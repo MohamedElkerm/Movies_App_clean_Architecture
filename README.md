@@ -15,6 +15,9 @@ For help getting started with Flutter development, view the
 [online documentation](https://docs.flutter.dev/), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.
 
+# Mockup
+![movies app mockup](https://github.com/MohamedElkerm/Movies_App_clean_Architecture/assets/87609841/220344f3-7074-41b1-818d-14d385fbe0f0)
+
 # Home Screen
 ![home page](https://github.com/MohamedElkerm/Movies_App_clean_Architecture/assets/87609841/452054a7-b98a-4a17-973a-63fde491ca51)
 
